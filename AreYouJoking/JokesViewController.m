@@ -17,6 +17,7 @@
 
 @implementation JokesViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.delegate = self;
@@ -42,10 +43,23 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    [session dataTaskWithRequest:request];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        if (error.domain)
+        
+        id parsedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        
+        NSLog(@"%@",parsedData);
+        
+    }] resume];
     
-    
+    NSLog(@"thread dataTaskRequest - Session was started");
     
 }
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.jokes.count;
+}
+
+
 
 @end
