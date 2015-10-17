@@ -44,11 +44,17 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//        if (error.domain)
+       
+        if (error){
+            NSLog(@"%@", error.domain);
+            //NSLog(@"%@", error);
+        }
         
         id parsedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         
         NSLog(@"%@",parsedData);
+        
+        [self parseData:parsedData];
         
     }] resume];
     
@@ -60,6 +66,44 @@
     return self.jokes.count;
 }
 
+-(void) parseData:(NSArray *)jokes {
+    /*
+    site
+    name
+    desc
+    link
+    elementPureHtml
+     */
+}
+/*
+ 
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityCellID"];
+ City *aCity = self.cities[indexPath.row];
+ 
+ //Настройте ячейку в соответствии с названием города
+ cell.textLabel.text = aCity.name;
+ 
+ return cell;
+ }
+ 
+ - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+ City *selectedCity = self.cities[indexPath.row];
+ 
+ //начать переход на другой вьюконтроллер и послать вдогонку город
+ [self performSegueWithIdentifier:@"Show City" sender:selectedCity];
+ }
+ 
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ //Проверим название перехода
+ if ([segue.identifier isEqualToString:@"Show City"]){
+ City *cityToPresent = sender;
+ CityDetailedViewController *controller = segue.destinationViewController;
+ 
+ controller.city = cityToPresent;
+ }
+ }
+ */
 
 
 @end

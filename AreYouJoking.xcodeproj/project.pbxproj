@@ -13,6 +13,7 @@
 		488F38E41BD2509700C8814B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488F38E31BD2509700C8814B /* Assets.xcassets */; };
 		488F38E71BD2509700C8814B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 488F38E51BD2509700C8814B /* LaunchScreen.storyboard */; };
 		48FA75341BD266A30000C964 /* JokesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA75331BD266A30000C964 /* JokesViewController.m */; settings = {ASSET_TAGS = (); }; };
+		48FA75381BD277450000C964 /* Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA75371BD277450000C964 /* Joke.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		488F38E81BD2509700C8814B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48FA75321BD266A30000C964 /* JokesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokesViewController.h; sourceTree = "<group>"; };
 		48FA75331BD266A30000C964 /* JokesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokesViewController.m; sourceTree = "<group>"; };
+		48FA75361BD277450000C964 /* Joke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Joke.h; sourceTree = "<group>"; };
+		48FA75371BD277450000C964 /* Joke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Joke.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +61,11 @@
 		488F38D61BD2509700C8814B /* AreYouJoking */ = {
 			isa = PBXGroup;
 			children = (
+				48FA75351BD266AE0000C964 /* View controller */,
+				48FA75391BD277510000C964 /* Model */,
 				488F38DA1BD2509700C8814B /* AppDelegate.h */,
 				488F38DB1BD2509700C8814B /* AppDelegate.m */,
 				488F38E01BD2509700C8814B /* Main.storyboard */,
-				48FA75351BD266AE0000C964 /* View controller */,
 				488F38E31BD2509700C8814B /* Assets.xcassets */,
 				488F38E51BD2509700C8814B /* LaunchScreen.storyboard */,
 				488F38E81BD2509700C8814B /* Info.plist */,
@@ -85,6 +89,15 @@
 				48FA75331BD266A30000C964 /* JokesViewController.m */,
 			);
 			name = "View controller";
+			sourceTree = "<group>";
+		};
+		48FA75391BD277510000C964 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48FA75361BD277450000C964 /* Joke.h */,
+				48FA75371BD277450000C964 /* Joke.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +172,7 @@
 			files = (
 				488F38DC1BD2509700C8814B /* AppDelegate.m in Sources */,
 				488F38D91BD2509700C8814B /* main.m in Sources */,
+				48FA75381BD277450000C964 /* Joke.m in Sources */,
 				48FA75341BD266A30000C964 /* JokesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
