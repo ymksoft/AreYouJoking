@@ -37,7 +37,7 @@
 
 -(void) updateData {
     
-    NSString *urlString = @"http://www.umori.li/api/get?site=bash.im&name=bash&num=10";
+    NSString *urlString = @"http://www.umori.li/api/get?site=bash.im&name=bash&num=100";
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     
@@ -62,7 +62,7 @@
         
     }] resume];
     
-    NSLog(@"thread dataTaskRequest - Session was started");
+    //NSLog(@"thread dataTaskRequest - Session was started");
     
 }
 
@@ -78,15 +78,15 @@
         
         [self.jokes addObject:pJoke];
         
-        NSLog(@"%@",pJoke.sourceSite);
+        //NSLog(@"%@",pJoke.sourceSite);
      
     }
     
-    NSLog(@"parsed OK");
+    //NSLog(@"parsed OK");
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [self.tableView reloadData];
-        NSLog(@"reload OK");
+        //NSLog(@"reload OK");
     }];
     
     
@@ -94,7 +94,7 @@
  
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
  
-     NSLog(@"query");
+     //NSLog(@"query");
      
      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"jokeCellID"];
  
