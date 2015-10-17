@@ -27,8 +27,7 @@
                                    
     
     self.textView.attributedText = attStr;
-    
-    //self.textView.text = self.joke.html;
+
 }
 
 
