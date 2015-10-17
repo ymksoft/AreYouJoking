@@ -14,6 +14,7 @@
 		488F38E71BD2509700C8814B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 488F38E51BD2509700C8814B /* LaunchScreen.storyboard */; };
 		48FA75341BD266A30000C964 /* JokesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA75331BD266A30000C964 /* JokesViewController.m */; settings = {ASSET_TAGS = (); }; };
 		48FA75381BD277450000C964 /* Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA75371BD277450000C964 /* Joke.m */; settings = {ASSET_TAGS = (); }; };
+		48FA753C1BD2880D0000C964 /* JokeDtailtedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FA753B1BD2880D0000C964 /* JokeDtailtedViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		48FA75331BD266A30000C964 /* JokesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokesViewController.m; sourceTree = "<group>"; };
 		48FA75361BD277450000C964 /* Joke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Joke.h; sourceTree = "<group>"; };
 		48FA75371BD277450000C964 /* Joke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Joke.m; sourceTree = "<group>"; };
+		48FA753A1BD2880D0000C964 /* JokeDtailtedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeDtailtedViewController.h; sourceTree = "<group>"; };
+		48FA753B1BD2880D0000C964 /* JokeDtailtedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeDtailtedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,8 @@
 			children = (
 				48FA75321BD266A30000C964 /* JokesViewController.h */,
 				48FA75331BD266A30000C964 /* JokesViewController.m */,
+				48FA753A1BD2880D0000C964 /* JokeDtailtedViewController.h */,
+				48FA753B1BD2880D0000C964 /* JokeDtailtedViewController.m */,
 			);
 			name = "View controller";
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				488F38DC1BD2509700C8814B /* AppDelegate.m in Sources */,
 				488F38D91BD2509700C8814B /* main.m in Sources */,
 				48FA75381BD277450000C964 /* Joke.m in Sources */,
+				48FA753C1BD2880D0000C964 /* JokeDtailtedViewController.m in Sources */,
 				48FA75341BD266A30000C964 /* JokesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

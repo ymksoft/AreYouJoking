@@ -15,7 +15,7 @@
     Joke *aJoke = [Joke new];
     
     aJoke.url = info[@"link"];
-    aJoke.sourceSite = info[@"desc"];
+    aJoke.sourceSite = info[@"site"];
     aJoke.html = info[@"elementPureHtml"];
     
     /*

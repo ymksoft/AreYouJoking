@@ -7,21 +7,24 @@
 //
 
 #import "JokesViewController.h"
+#import "Joke.h"
+#import "JokeDtailtedViewController.h"
 
 @interface JokesViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *jokes;
+@property (strong, nonatomic) NSMutableArray *jokes;
 
 @end
 
 @implementation JokesViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    if(!self.jokes) self.jokes = [NSMutableArray new];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -30,6 +33,7 @@
         [self updateData];
     }
 }
+
 
 -(void) updateData {
     
@@ -52,7 +56,7 @@
         
         id parsedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         
-        NSLog(@"%@",parsedData);
+        //NSLog(@"%@",parsedData);
         
         [self parseData:parsedData];
         
@@ -66,44 +70,74 @@
     return self.jokes.count;
 }
 
--(void) parseData:(NSArray *)jokes {
-    /*
-    site
-    name
-    desc
-    link
-    elementPureHtml
-     */
+-(void) parseData:(NSMutableArray *)jokesDic {
+    
+    for (NSDictionary *pInfo in jokesDic) {
+        
+        Joke *pJoke = [Joke jokeFromDictionary:pInfo];
+        
+        [self.jokes addObject:pJoke];
+        
+        NSLog(@"%@",pJoke.sourceSite);
+     
+    }
+    
+    NSLog(@"parsed OK");
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self.tableView reloadData];
+        NSLog(@"reload OK");
+    }];
+    
+    
 }
-/*
  
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityCellID"];
- City *aCity = self.cities[indexPath.row];
  
- //Настройте ячейку в соответствии с названием города
- cell.textLabel.text = aCity.name;
+     NSLog(@"query");
+     
+     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"jokeCellID"];
  
- return cell;
+     Joke *aJoke = self.jokes[indexPath.row];
+ 
+     //Настройте ячейку в соответствии с названием города
+     cell.textLabel.text = aJoke.html;
+     cell.detailTextLabel.text = aJoke.sourceSite;
+    
+     return cell;
  }
- 
+
+/*
+
  - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
- City *selectedCity = self.cities[indexPath.row];
  
- //начать переход на другой вьюконтроллер и послать вдогонку город
- [self performSegueWithIdentifier:@"Show City" sender:selectedCity];
- }
+     Joke  *aJoke = self.jokes[indexPath.row];
  
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- //Проверим название перехода
- if ([segue.identifier isEqualToString:@"Show City"]){
- City *cityToPresent = sender;
- CityDetailedViewController *controller = segue.destinationViewController;
- 
- controller.city = cityToPresent;
- }
+     //начать переход на другой вьюконтроллер и послать вдогонку город
+     [self performSegueWithIdentifier:@"Joke Show" sender:aJoke];
+     
  }
  */
+
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ 
+     
+     //Проверим название перехода
+     if ([segue.destinationViewController isKindOfClass:[JokeDtailtedViewController class]]) {
+         
+         
+         JokeDtailtedViewController *controller = segue.destinationViewController;
+         
+         UITableViewCell *aCell = sender;
+         
+         NSIndexPath *path = [self.tableView indexPathForCell:aCell];
+         
+         Joke *aJoke = self.jokes[path.row];
+         
+         controller.joke = aJoke;
+     }
+ }
+
 
 
 @end
